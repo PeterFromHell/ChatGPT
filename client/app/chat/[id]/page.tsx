@@ -1,6 +1,11 @@
 import React from "react";
 
 const ChatPage = () => {
-  return <div>Chat Page</div>;
+  return(
+    <div className="flec flex-col h-screen overflow-hidden">
+      {/* Chat */}
+
+      {/* Chat Input */}
+    </div>;
 };
 export default ChatPage;
