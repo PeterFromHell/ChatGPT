@@ -6,6 +6,7 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase";
 import ChatRow from "./ChatRow";
+import ModelSelection from "./ModelSelection";
 
 const NavBar = () => {
   const { data: session } = useSession();
@@ -24,12 +25,20 @@ const NavBar = () => {
         <div>
           {/* new chat */}
           <NewChat />
-          <div>{/* module selection */}</div>
-
-          {/* map through the chart */}
-          {chats?.docs.map((chat) => (
-            <ChatRow key={chat.id} id={chat.id} />
-          ))}
+          <div className="hidden sm:inline">
+            <ModelSelection />
+          </div>
+          <div className="flex flex-col space-y-2 my-2">
+            {loading && (
+              <div className="animte-pulse text-center text-white">
+                <p>Loading Chat...</p>
+              </div>
+            )}
+            {/* map through the chart */}
+            {chats?.docs.map((chat) => (
+              <ChatRow key={chat.id} id={chat.id} />
+            ))}
+          </div>
         </div>
       </div>
 
