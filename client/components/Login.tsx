@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { login, signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 
 const Login = () => {
